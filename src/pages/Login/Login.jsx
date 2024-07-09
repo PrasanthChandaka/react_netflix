@@ -45,7 +45,7 @@ const Login = () => {
         );
         navigate("/home");
       } catch (e) {
-        toast.error(e.message.split("/")[1].split(")")[0].split("-").join(" "));
+        toast.error(e.message);
       }
     } else {
       try {
@@ -65,7 +65,7 @@ const Login = () => {
         toast.success("Success we have created your accout.You can login Now!");
         setSignState("signIn");
       } catch (e) {
-        toast.error(e.message.split("/")[1].split(")")[0].split("-").join(" "));
+        toast.error(e.message);
       }
     }
     setName("");
