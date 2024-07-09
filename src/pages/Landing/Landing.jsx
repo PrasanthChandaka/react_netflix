@@ -86,7 +86,7 @@ const Landing = () => {
     } else {
       navigate("/");
     }
-  });
+  }, []);
 
   const { option } = useContext(store);
   const navigate = useNavigate();
