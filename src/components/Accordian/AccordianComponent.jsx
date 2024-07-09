@@ -104,7 +104,11 @@ const AccordianComponent = () => {
                 }}
               >
                 <p>{each.title}</p>
-                {selected === index ? <RxCross1 /> : <FiPlus />}
+                {selected === index ? (
+                  <RxCross1 size={30} />
+                ) : (
+                  <FiPlus size={30} />
+                )}
               </div>
 
               <p
@@ -128,7 +132,11 @@ const AccordianComponent = () => {
                 }}
               >
                 <p>{each.title}</p>
-                {selected === index ? <RxCross1 /> : <FiPlus />}
+                {selected === index ? (
+                  <RxCross1 size={30} />
+                ) : (
+                  <FiPlus size={30} />
+                )}
               </div>
 
               <p
