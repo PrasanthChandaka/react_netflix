@@ -33,7 +33,7 @@
   max-width: 400px;
   background-color: rgba(0, 0, 0, 0.9);
   padding: 40px 30px;
-  gap: 1rem;
+  gap: 20px;
   border-radius: 5px;
   z-index: 1;
 }
