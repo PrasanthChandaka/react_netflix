@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
-import { store } from "../context";
+import { store } from "../../context";
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
@@ -86,42 +86,58 @@ const hindiContent = [
 ];
 
 const AccordianComponent = () => {
-  const [expand, setExpand] = useState(false);
+  const [selected, setSelected] = useState(null);
   const { option } = useContext(store);
   const navigate = useNavigate();
   return (
     <ul className="touch-pan-y flex flex-col gap-3 text-sm md:text-xl">
       {option === "English"
-        ? englishContent.map((each) => (
+        ? englishContent.map((each, index) => (
             <li key={each.id}>
               <div
                 className="flex justify-between items-center p-7 bg-[#2d2d2d] hover:bg-[#414141]"
-                onClick={() => setExpand(!expand)}
+                onClick={() => {
+                  if (selected === index) {
+                    return setSelected(null);
+                  }
+                  setSelected(index);
+                }}
               >
                 <p>{each.title}</p>
-                {expand ? <RxCross1 /> : <FiPlus />}
+                {selected === index ? <RxCross1 /> : <FiPlus />}
               </div>
-              {expand && (
-                <p className="bg-[#2d2d2d] p-5 mt-[1px] leading-relaxed">
-                  {each.content}
-                </p>
-              )}
+
+              <p
+                className={`bg-[#2d2d2d] p-5 mt-[1px] leading-relaxed ${
+                  selected === index ? "block" : "hidden"
+                }`}
+              >
+                {each.content}
+              </p>
             </li>
           ))
-        : hindiContent.map((each) => (
+        : hindiContent.map((each, index) => (
             <li key={each.id}>
               <div
                 className="flex justify-between items-center p-7 cursor-pointer bg-[#2d2d2d] hover:bg-[#414141]"
-                onClick={() => setExpand(!expand)}
+                onClick={() => {
+                  if (selected === index) {
+                    return setSelected(null);
+                  }
+                  setSelected(index);
+                }}
               >
                 <p>{each.title}</p>
-                {expand ? <RxCross1 /> : <FiPlus />}
+                {selected === index ? <RxCross1 /> : <FiPlus />}
               </div>
-              {expand && (
-                <p className="bg-[#2d2d2d] p-5 mt-[1px] leading-relaxed">
-                  {each.content}
-                </p>
-              )}
+
+              <p
+                className={`bg-[#2d2d2d] p-5 mt-[1px] leading-relaxed ${
+                  selected === index ? "block" : "hidden"
+                }`}
+              >
+                {each.content}
+              </p>
             </li>
           ))}
       <p className="text-center mt-10">

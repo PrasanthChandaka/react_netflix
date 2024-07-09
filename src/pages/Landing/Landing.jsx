@@ -6,7 +6,7 @@ import landingImg1 from "../../assets/landing-feature-1.webp";
 import landingImg2 from "../../assets/landing-feature-2.webp";
 import landingImg3 from "../../assets/landing-feature-3.webp";
 import landingImg4 from "../../assets/landing-feature-4.png";
-import AccordianComponent from "../../components/AccordianComponent";
+import AccordianComponent from "../../components/Accordian/AccordianComponent";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
 
